@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,5 +79,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (MEDIA_ROOT,)
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
