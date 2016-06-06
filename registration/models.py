@@ -23,7 +23,7 @@ class MyUserManager(BaseUserManager):
 
     def create_superuser(self, email, username, password):
         """
-        Creates and saves a superuser with the given email, username and password.
+        Creates and saves a superuser with the given email, username and  password.
         """
         user = self.create_user(email, username, password=password)
         user.is_admin = True
@@ -95,3 +95,12 @@ class User(AbstractBaseUser):
 
     def __unicode__(self):
         return self.username
+class  Chocolate(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(_('Chocolate Name'),max_length=100,blank=True )
+    description = models.CharField(_('Chocolate Description'),max_length=1000,blank=True )
+    price =models.IntegerField(_('Chocolate Price'),
+                                 validators=[MaxValueValidator(1000), MinValueValidator(0)],
+                                 help_text=_('4 digits maximum'), blank=True, null=True)
+
+    manufacturer = models.CharField(_('Chocolate Manufacturer'),max_length=100,blank=True )

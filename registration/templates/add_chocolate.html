@@ -70,7 +70,7 @@
 	       <div class="row">
               <div class="col-md-6">
  				<form class="form-horizontal well" id="registerForm" method="POST"
-          					enctype="multipart/form-data" action="{% url 'register_user' %}">
+          					enctype="multipart/form-data" action="">
           					<fieldset>
           							{% csrf_token %} {% load tz %}
           							{% for field in form.visible_fields %}
