@@ -25,5 +25,7 @@ urlpatterns = patterns('',
                            auth_views.logout,
                            {'template_name': 'logout.html'},
                            name='logout'),
-    url(r'^chocolate/add/',AddChocolateView.as_view(),name="add_chocolate")
-   )
+    url(r'^chocolate/add/',AddChocolateView.as_view(),name="add_chocolate"),
+    url( r'^chocolate/info/(?P<choco_id>\d+)/$', ChocolateDetailsView.as_view(), name="chocolate_info"),
+    url(r'^user/profile/edit/$', UserProfileUpdateView.as_view(), name='user_profile_update'),
+ )
